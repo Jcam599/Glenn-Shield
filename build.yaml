@@ -18,5 +18,5 @@
 #
 ---
 include:
-  - board: Glenn
+  - board: xiao_ble
     shield: Glenn
