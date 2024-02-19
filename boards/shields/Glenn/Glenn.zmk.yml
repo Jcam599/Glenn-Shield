@@ -1,0 +1,8 @@
+file_format: "1"
+id: Glenn
+name: Glenn
+type: shield
+requires: [seeed_xiao]
+features:
+  - keys
+  - Rotary Encoder
