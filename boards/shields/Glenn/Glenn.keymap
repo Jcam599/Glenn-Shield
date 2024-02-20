@@ -8,12 +8,38 @@
 
 / {
 
+    macros {
+        cum: cum {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp C &kp U &kp M>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+    };
+
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder_1>;
         triggers-per-rotation = <20>;
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_clr {
+            timeout-ms = <50>;
+            key-positions = <0 3>;
+            bindings = <&bt BT_CLR_ALL>;
+        };
+        combo_cum {
+            timeout-ms = <50>;
+            key-positions = <0 3>;
+            bindings = <&cum>;
+        };
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
@@ -24,7 +50,7 @@
 // |  SHIFT  |    Z    |    X    |    C    |    V    |    B    | CTRL+A  | CTRL+C  |  |  CTRL+V |  CTRL+X |    N    |    M    |    ,    |    .    |    /    |  R CTRL |
 //                               |   GUI   |   DEL   | RETURN  |  SPACE  | ESCAPE  |  |  RETURN |  SPACE  |   TAB   |   BSPC  |  R ALT  |
             bindings = <
-    &kp LSHIFT    &kp LCTRL    &kp TAB    &bt BT_CLR_ALL
+    &kp LSHIFT    &kp LCTRL    &kp TAB    &kp KP_NUMLOCK
     &kp KP_MINUS    &kp KP_MULTIPLY    &kp KP_DIVIDE    &kp KP_N7
     &kp KP_PLUS    &kp KP_N9    &kp KP_N8    &kp KP_N4
     &kp KP_ENTER    &kp KP_N6    &kp KP_N5    &kp KP_N1
