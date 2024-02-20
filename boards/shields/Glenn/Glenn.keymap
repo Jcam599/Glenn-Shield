@@ -35,7 +35,7 @@
         };
         combo_cum {
             timeout-ms = <50>;
-            key-positions = <10 14>;
+            key-positions = <9 13>;
             bindings = <&cum>;
         };
     };
